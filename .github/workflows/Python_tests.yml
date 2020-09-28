@@ -17,8 +17,12 @@ jobs:
       - name: Install Calibre
         run: |
           echo $PATH
-          wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin install_dir=~/calibre-bin isolated=y
-          ls ~/calibre-bin
+          wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin install_dir=~/calibre isolated=y
+          echo "::add-path::$HOME/calibre/calibre"
+          ls ~/calibre/calibre/
+      - name: Adding plugin to Calibre
+        run: |
+          calibre-customize -b DeDRM_plugin
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
