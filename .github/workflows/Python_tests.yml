@@ -19,11 +19,13 @@ jobs:
           echo $PATH
           wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin install_dir=~/calibre isolated=y
           echo "::add-path::$HOME/calibre/calibre"
-          ls ~/calibre/calibre/
+          ls calibre/calibre/
+          pwd
+          mkdir ebooks
       - name: Load plugin in Calibre
         run: |
           calibre-customize -b DeDRM_plugin
-          calibredb add pg5200.epub
+          calibredb add --with-library=$HOME/ebooks/ pg5200.epub
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
