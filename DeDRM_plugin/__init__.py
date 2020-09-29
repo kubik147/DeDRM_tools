@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+SYNTAX ERROR HERE
 
 # __init__.py for DeDRM_plugin
 # Copyright © 2008-2020 Apprentice Harper et al.
